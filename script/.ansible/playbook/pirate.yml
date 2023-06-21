@@ -1,0 +1,50 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Mise a jour des packages
+      apt:
+        upgrade: "yes"
+        update_cache: "yes"
+    - name: Installation de nano
+      apt:
+        name: nano
+        state: latest
+    - name: Installation de nmap
+      apt:
+        name: nmap
+        state: latest
+    - name: Installation de netdiscover
+      apt:
+        name: netdiscover
+        state: latest
+    - name: Installation de sqlmap
+      apt:
+        name: sqlmap
+        state: latest
+    - name: Installation de crunch
+      apt:
+        name: crunch
+        state: latest
+    - name: Installation de patator
+      apt:
+        name: patator
+        state: latest
+    - name: Installation de weevely
+      apt:
+        name: weevely
+        state: latest
+    - name: Installation de lynx
+      apt:
+        name: lynx
+        state: latest
+
+    - name: Installation de cowsay
+      apt:
+        name: cowsay
+        state: latest
+    - name: Ajout du repertoire /usr/games dans la variable d environnement $PATH
+      lineinfile:
+        path: /root/.bashrc
+        line: 'export PATH="$PATH:/usr/games/"'
+        state: present
